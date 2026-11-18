@@ -41,7 +41,7 @@ Nous remercions tous ceux qui ont contribué à ce projet !
 
 ### Contributeurs
 - [Eya Hadded](https://github.com/EyaHadded) - Développement de l'application
-- [Membre2](https://github.com/membre2) - Rôle ...
+
 
 ### Comment contribuer ?
 1. **Fork le projet** : cliquez sur le bouton **Fork** en haut à droite de la page GitHub.
