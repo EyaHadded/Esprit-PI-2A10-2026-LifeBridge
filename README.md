@@ -1,56 +1,23 @@
-# Life Bridge
-
-Application web de gestion du don de sang et du don d'organes.
-
-## Description
-**Life Bridge** est une application web qui permet de gérer les dons de sang et d'organes.
-- **Objectif** : faciliter l'inscription des donneurs et la mise en relation avec les patients.
-- **Problème résolu** : manque de centralisation et de suivi des demandes de don.
-- **Fonctionnalités principales** : inscription des donneurs, gestion des demandes, suivi des dons.
-
-## Table des Matières
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contributions](#contributions)
-- [Licence](#licence)
+# MonProjet — Authentification à 3 rôles (MVC PHP)
 
 ## Installation
-1. Clonez le repository :
-   ```bash
-   git clone https://github.com/EyaHadded/life-bridge.git
-   cd life-bridge
-   ```
-2. Si vous utilisez WAMP ou XAMPP :
-   * Placez le projet dans le dossier www (WAMP) ou htdocs (XAMPP).
-   * Démarrez Apache et MySQL depuis l'interface de WAMP/XAMPP.
-   * Accédez au projet via http://localhost/life-bridge.
+1. Copier le dossier dans `htdocs` (XAMPP) ou `www` (WAMP), ou lancer `php -S localhost:8000` dans le dossier.
+2. Importer `database.sql` dans phpMyAdmin (crée la base `projet_web` et la table `users`).
+3. Adapter si besoin l'utilisateur / mot de passe MySQL dans `config/database.php`.
+4. Ouvrir `http://localhost/monprojet/index.php`.
 
-## Utilisation
-### Installation de PHP
-Pour utiliser ce projet, vous devez installer PHP. Voici les étapes :
-1. Téléchargez PHP depuis le site officiel : [PHP - Téléchargement](https://www.php.net/downloads.php).
-2. Installez PHP selon votre système d'exploitation :
-   - Pour **Windows**, utilisez [XAMPP](https://www.apachefriends.org/fr/index.html) ou [WampServer](http://www.wampserver.com/).
-3. Vérifiez l'installation :
-   ```bash
-   php -v
-   ```
+## Rôles et pages
+| Rôle (base)   | Page            | Action URL                  | Code d'inscription |
+|---------------|-----------------|-----------------------------|--------------------|
+| citoyen       | Page Citoyen    | index.php?action=citoyen    | aucun              |
+| agent_sante   | Page Agent santé| index.php?action=sante      | SANTE-2026         |
+| securite      | Page Administration | index.php?action=administration | ADMIN-2026 |
 
-## Contributions
-Nous remercions tous ceux qui ont contribué à ce projet !
+Les codes se changent dans `config/config.php`.
 
-### Contributeurs
-- [Eya Hadded](https://github.com/EyaHadded) - Développement de l'application
-
-
-### Comment contribuer ?
-1. **Fork le projet** : cliquez sur le bouton **Fork** en haut à droite de la page GitHub.
-2. **Clonez votre fork** :
-   ```bash
-   git clone https://github.com/votre-utilisateur/life-bridge.git
-   cd life-bridge
-   ```
-3. Créez une nouvelle branche, faites vos modifications, puis soumettez une **pull request**.
-
-## Licence
-Ce projet est sous la licence **MIT**. Pour plus de détails, consultez le fichier [LICENSE](./LICENSE).
+## Structure
+- config/ : database.php (PDO Singleton), config.php (codes)
+- models/UserModel.php : attributs + getters/setters
+- controllers/AuthController.php : logique (SQL préparé, hachage, sessions, CSRF, rôles)
+- views/ : login, register, 3 pages d'espace, layout + partials (head, header, footer)
+- index.php : point d'entrée, session sécurisée, en-têtes, routage

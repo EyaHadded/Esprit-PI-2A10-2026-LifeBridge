@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; color: #222; }
+.topnav { display: flex; justify-content: space-between; padding: 10px 20px; background: #fff; border-bottom: 1px solid #ccc; }
+.topnav a { margin-left: 12px; }
+.container { max-width: 700px; margin: 30px auto; padding: 20px; background: #fff; border: 1px solid #ccc; }
+label { display: block; margin-top: 12px; }
+input, select { width: 100%; padding: 6px; box-sizing: border-box; }
+button { margin-top: 16px; padding: 8px 16px; }
+.alert-error { background: #fde0e0; border: 1px solid #d99; padding: 8px; margin-bottom: 10px; }
+.alert-success { background: #e0f5e0; border: 1px solid #9d9; padding: 8px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th, td { text-align: left; padding: 6px; border-bottom: 1px solid #ddd; }
+.footer { text-align: center; font-size: 12px; color: #777; padding: 15px; }
