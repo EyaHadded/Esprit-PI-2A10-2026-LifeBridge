@@ -1,56 +1,114 @@
-# Life Bridge
+# Life Bridge – Blood and Organ Donation Management Platform
 
-Application web de gestion du don de sang et du don d'organes.
+## Overview
 
-## Description
-**Life Bridge** est une application web qui permet de gérer les dons de sang et d'organes.
-- **Objectif** : faciliter l'inscription des donneurs et la mise en relation avec les patients.
-- **Problème résolu** : manque de centralisation et de suivi des demandes de don.
-- **Fonctionnalités principales** : inscription des donneurs, gestion des demandes, suivi des dons.
+This project was developed as part of the **Web Technologies Project (2A)** at **Esprit School of Engineering – Tunisia** (Academic Year 2026–2027).
 
-## Table des Matières
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contributions](#contributions)
-- [Licence](#licence)
+**Life Bridge** is a PHP web application for managing blood and organ donation. This module provides secure user management: registration, authentication, role-based access control (frontoffice for users, backoffice for administrators) and a complete CRUD on users.
 
-## Installation
-1. Clonez le repository :
+## Features
+
+- User registration with password hashing (`password_hash()`)
+- Login / logout with secure PHP sessions (30-minute inactivity timeout)
+- Role-based access control: `user` (frontoffice) and `admin` (backoffice)
+- Backoffice dashboard with statistics
+- Full user management (admin): list, search, add, edit, delete, change role
+- Business rules: an administrator cannot delete or demote their own account
+- Input validation on all forms: **PHP** (server side) and **JavaScript** (client side)
+- Security: prepared statements (SQL injection), output escaping (XSS), CSRF tokens, session fixation protection, HTTP security headers
+
+## Tech Stack
+
+### Frontend
+
+- HTML5, CSS3, JavaScript (client-side validation)
+- Frontoffice and backoffice templates (integration in progress)
+
+### Backend
+
+- PHP 8 – MVC architecture
+- PDO (MySQL)
+- MySQL / phpMyAdmin (XAMPP)
+
+## Architecture
+
+The project follows the **MVC** pattern:
+
+```
+life-bridge/
+├── app/
+│   ├── controllers/
+│   │   ├── AuthController.php    # authentication, sessions, roles, CSRF
+│   │   └── UserController.php    # users CRUD (admin)
+│   ├── models/
+│   │   └── UserModel.php         # user entity (attributes, getters/setters)
+│   └── views/                    # HTML only (layouts, login, register, dashboards, users CRUD)
+├── config/
+│   └── database.php              # PDO connection (Singleton)
+├── public/
+│   ├── css/
+│   ├── js/
+│   │   └── validation.js         # client-side validation
+│   └── images/
+├── sql/
+│   └── users.sql                 # database schema
+├── index.php                     # single entry point + routing (?action=...)
+└── README.md
+```
+
+## Contributors
+
+| Name | GitHub |
+|------|--------|
+| Fattouma Ben Rabiha | [@Fattouma87](https://github.com/Fattouma87) |
+| Eya Hadded | [@EyaHadded](https://github.com/EyaHadded) |
+| Hiba Krida | *to complete* |
+| Mohamed Salah Allouche | *to complete* |
+
+## Academic Context
+
+Developed at **Esprit School of Engineering – Tunisia**
+Web Technologies Project – 2A | 2026–2027
+
+## Getting Started
+
+### Prerequisites
+
+- [XAMPP](https://www.apachefriends.org/) (Apache + MySQL + PHP 8)
+- Git
+
+### Installation
+
+1. Clone the repository into the XAMPP web folder:
+
    ```bash
-   git clone https://github.com/EyaHadded/life-bridge.git
-   cd life-bridge
-   ```
-2. Si vous utilisez WAMP ou XAMPP :
-   * Placez le projet dans le dossier www (WAMP) ou htdocs (XAMPP).
-   * Démarrez Apache et MySQL depuis l'interface de WAMP/XAMPP.
-   * Accédez au projet via http://localhost/life-bridge.
-
-## Utilisation
-### Installation de PHP
-Pour utiliser ce projet, vous devez installer PHP. Voici les étapes :
-1. Téléchargez PHP depuis le site officiel : [PHP - Téléchargement](https://www.php.net/downloads.php).
-2. Installez PHP selon votre système d'exploitation :
-   - Pour **Windows**, utilisez [XAMPP](https://www.apachefriends.org/fr/index.html) ou [WampServer](http://www.wampserver.com/).
-3. Vérifiez l'installation :
-   ```bash
-   php -v
+   cd C:\xampp\htdocs
+   git clone <repository-url> LifeBridge
    ```
 
-## Contributions
-Nous remercions tous ceux qui ont contribué à ce projet !
+2. Start **Apache** and **MySQL** from the XAMPP Control Panel.
+3. Open phpMyAdmin (`http://localhost/phpmyadmin`) → **Import** → select `sql/users.sql`.
+   This creates the `life_bridge` database and the `users` table.
 
-### Contributeurs
-- [Eya Hadded](https://github.com/EyaHadded) - Développement de l'application
+### Configuration
 
+Check the database credentials in `config/database.php` (default XAMPP: user `root`, empty password, database `life_bridge`).
 
-### Comment contribuer ?
-1. **Fork le projet** : cliquez sur le bouton **Fork** en haut à droite de la page GitHub.
-2. **Clonez votre fork** :
-   ```bash
-   git clone https://github.com/votre-utilisateur/life-bridge.git
-   cd life-bridge
+### Run
+
+Open `http://localhost/LifeBridge/index.php`
+
+### Create an administrator
+
+1. Register a normal account at `index.php?action=register`.
+2. In phpMyAdmin (SQL tab), run:
+
+   ```sql
+   UPDATE users SET role = 'admin' WHERE email = 'your@email.com';
    ```
-3. Créez une nouvelle branche, faites vos modifications, puis soumettez une **pull request**.
 
-## Licence
-Ce projet est sous la licence **MIT**. Pour plus de détails, consultez le fichier [LICENSE](./LICENSE).
+3. Log out and log in again: you are redirected to the backoffice.
+
+## Acknowledgments
+
+Thanks to the teaching team of **Esprit School of Engineering** for the workshops and guidance.
