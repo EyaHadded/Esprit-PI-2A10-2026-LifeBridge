@@ -17,7 +17,7 @@ $old = $old ?? [];
     </div>
   <?php endif; ?>
 
-  <form method="POST" action="index.php?action=register">
+  <form method="POST" action="index.php?action=register" data-validate="register" novalidate>
     <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
     <label for="username">Username</label>

@@ -12,7 +12,10 @@ ob_start();
 </div>
 
 <div class="card">
-  <h2>All users</h2>
+  <div class="card-head">
+    <h2>All users</h2>
+    <a class="btn btn-primary btn-sm" href="index.php?action=users">Manage users</a>
+  </div>
   <table>
     <thead>
       <tr><th>ID</th><th>Username</th><th>Email</th><th>Role</th><th>Created at</th></tr>

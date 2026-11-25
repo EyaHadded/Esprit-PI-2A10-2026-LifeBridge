@@ -52,6 +52,34 @@ tr:last-child td { border-bottom:none; }
 .badge { display:inline-block; padding:3px 10px; border-radius:12px; font-size:12px; font-weight:600; }
 .badge-admin { background:#fee2e2; color:var(--red); }
 .badge-user { background:#e0e7ff; color:var(--accent-dark); }
+
+.alert { padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:16px; }
+.alert-error { background:#fee2e2; color:#991b1b; border:1px solid #fecaca; }
+.alert-success { background:#dcfce7; color:#166534; border:1px solid #bbf7d0; }
+.toolbar { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-bottom:16px; }
+.search-form { display:flex; gap:8px; align-items:center; }
+input[type=text], input[type=email], input[type=password], select { padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; background:#fff; color:var(--text); }
+input:focus, select:focus { outline:none; border-color:var(--accent); }
+.form-card { max-width:520px; }
+.form-group { margin-bottom:16px; }
+.form-group label { display:block; font-size:13px; color:var(--text-light); margin-bottom:6px; }
+.form-group input, .form-group select { width:100%; }
+.is-invalid { border-color:var(--red) !important; }
+.field-error { color:var(--red); font-size:12px; margin-top:4px; }
+.hint { font-size:12px; color:var(--text-light); margin-top:4px; }
+.btn { display:inline-block; padding:9px 16px; border:none; border-radius:8px; font-size:14px; cursor:pointer; text-decoration:none; }
+.btn-sm { padding:6px 10px; font-size:12px; }
+.btn-primary { background:var(--accent); color:#fff; }
+.btn-primary:hover { background:var(--accent-dark); }
+.btn-secondary { background:#e5e7eb; color:var(--text); }
+.btn-secondary:hover { background:#d1d5db; }
+.btn-danger { background:var(--red); color:#fff; }
+.btn-danger:hover { background:#b91c1c; }
+.btn-link { background:none; color:var(--text-light); }
+.actions { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.actions form { margin:0; }
+.card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+.card-head h2 { margin:0; }
 </style>
 </head>
 <body>
@@ -60,7 +88,7 @@ tr:last-child td { border-bottom:none; }
     <div class="brand"><span class="dot"></span> LifeBridge Admin</div>
     <nav>
       <a href="index.php?action=admin" class="<?= $activePage === 'dashboard' ? 'active' : '' ?>"><span class="icon">&#9632;</span> Dashboard</a>
-      <a href="index.php?action=admin" class="<?= $activePage === 'users' ? 'active' : '' ?>"><span class="icon">&#128101;</span> Users</a>
+      <a href="index.php?action=users" class="<?= $activePage === 'users' ? 'active' : '' ?>"><span class="icon">&#128101;</span> Users</a>
       <a href="index.php?action=dashboard"><span class="icon">&#8617;</span> Back to frontoffice</a>
     </nav>
     <div class="sidebar-footer">
@@ -79,5 +107,6 @@ tr:last-child td { border-bottom:none; }
     </div>
   </div>
 </div>
+<script src="public/js/validation.js"></script>
 </body>
 </html>

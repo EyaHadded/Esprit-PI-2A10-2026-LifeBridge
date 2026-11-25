@@ -44,6 +44,8 @@ button:hover { background:var(--chrome-blue-dark); }
 table { width:100%; border-collapse:collapse; margin-top:20px; }
 th, td { text-align:left; padding:10px; border-bottom:1px solid var(--chrome-border); font-size:14px; }
 th { color:var(--chrome-text-light); font-weight:600; }
+.field-error { color:var(--chrome-red); font-size:12px; margin-top:4px; }
+.is-invalid { border-color:var(--chrome-red) !important; }
 </style>
 </head>
 <body>
@@ -64,5 +66,6 @@ th { color:var(--chrome-text-light); font-weight:600; }
   </div>
 </nav>
 <?= $content ?>
+<script src="public/js/validation.js"></script>
 </body>
 </html>
