@@ -12,18 +12,21 @@ $currentPage = 'espace';
 <?php require_once __DIR__ . '/includes/spinner.php'; ?>
 <?php require_once __DIR__ . '/includes/navbar.php'; ?>
 
-<!-- ===== Contenu spécifique à la page ===== -->
 <section class="container py-5">
   <h1 class="section-title">Espace <span>Agent de santé</span></h1>
   <p class="lead">Bienvenue, <?= e($user->getNom()) ?>.</p>
+
   <div class="feature-card text-start mb-4">
     <p class="mb-1"><strong>Rôle :</strong> Agent de santé</p>
     <p class="mb-0"><strong>E-mail :</strong> <?= e($user->getEmail()) ?></p>
   </div>
-  <a href="index.php?page=demandes" class="btn btn-lb me-2">Demandes</a>
-  <a href="index.php?page=campagnes" class="btn btn-outline-lb">Campagnes</a>
+
+  <div class="d-flex flex-wrap gap-2">
+    <a href="index.php?page=profil" class="btn btn-lb">
+      <i class="bi bi-person-gear me-1"></i> Gérer mon profil
+    </a>
+  </div>
 </section>
-<!-- ===== Fin du contenu spécifique ===== -->
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
 <?php require_once __DIR__ . '/includes/scripts.php'; ?>

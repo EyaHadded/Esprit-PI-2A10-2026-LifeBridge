@@ -8,9 +8,11 @@
       </div>
       <div class="col-lg-2 col-md-6">
         <h5 class="text-white mb-3">Liens rapides</h5>
-        <a class="d-block footer-link" href="index.php?page=don-sang">Don de sang</a>
-        <a class="d-block footer-link" href="index.php?page=don-organes">Don d'organes</a>
-        <a class="d-block footer-link" href="index.php?page=campagnes">Campagnes</a>
+        <?php if (empty($hideDonationLinks)): ?>
+          <a class="d-block footer-link" href="index.php?page=don-sang">Don de sang</a>
+          <a class="d-block footer-link" href="index.php?page=don-organes">Don d'organes</a>
+          <a class="d-block footer-link" href="index.php?page=campagnes">Campagnes</a>
+        <?php endif; ?>
         <a class="d-block footer-link" href="index.php?page=contact">Contact</a>
       </div>
       <div class="col-lg-3 col-md-6">

@@ -22,10 +22,12 @@ class Validator
     {
         $errors = array();
 
-        if ($password === '' && !$required) {
+        if ($password === '' && !$required && $confirm === '') {
             return $errors;
         }
-        if (strlen($password) < 8) {
+        if ($password === '') {
+            $errors[] = 'Saisissez le nouveau mot de passe.';
+        } elseif (strlen($password) < 8) {
             $errors[] = 'Le mot de passe doit contenir au moins 8 caractères.';
         }
         if ($password !== $confirm) {
@@ -53,7 +55,7 @@ class Validator
             $error = self::email($email);
             if ($error !== null) { $errors[] = $error; }
         }
-        if ($password !== '' || $passwordRequired) {
+        if ($password !== '' || $confirm !== '' || $passwordRequired) {
             $passwordErrors = self::password($password, $confirm, $passwordRequired);
             $errors = array_merge($errors, $passwordErrors);
         }

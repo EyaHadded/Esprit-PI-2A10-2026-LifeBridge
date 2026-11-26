@@ -114,6 +114,22 @@ class UserService
         return $statement->execute(array('nom' => $nom, 'email' => $email, 'role' => $role, 'id' => $id));
     }
 
+    // UPDATE : modifier le profil sans permettre à l'utilisateur de changer son rôle.
+    public function updateProfile($id, $nom, $email, $passwordHash = null)
+    {
+        if ($passwordHash !== null) {
+            $statement = $this->db->prepare(
+                'UPDATE users SET nom = :nom, email = :email, password = :password WHERE id = :id'
+            );
+            return $statement->execute(array(
+                'nom' => $nom, 'email' => $email, 'password' => $passwordHash, 'id' => $id
+            ));
+        }
+
+        $statement = $this->db->prepare('UPDATE users SET nom = :nom, email = :email WHERE id = :id');
+        return $statement->execute(array('nom' => $nom, 'email' => $email, 'id' => $id));
+    }
+
     // DELETE : supprimer un utilisateur.
     public function delete($id)
     {
