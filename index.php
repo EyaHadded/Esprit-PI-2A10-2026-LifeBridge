@@ -17,7 +17,8 @@ $routes = array(
     'connexion' => 'AuthController',
     'deconnexion' => 'AuthController@logout',
     'espace-citoyen' => 'EspaceController@citoyen',
-    'espace-sante' => 'EspaceController@sante'
+    'espace-sante' => 'EspaceController@sante',
+    'profil' => 'EspaceController@profil'
 );
 
 $page = isset($_GET['page']) && is_string($_GET['page']) ? $_GET['page'] : 'home';
