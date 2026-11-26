@@ -1,0 +1,22 @@
+:root{--lb-red:#c62d2d;--lb-red-dark:#a32020;--lb-teal:#1b6b7a;--lb-navy:#0f2c5c;--lb-cream:#fff1dc;--lb-pink:#fde8e8}
+body{font-family:'Poppins',sans-serif;color:#222}
+#spinner{opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s linear .5s;z-index:99999}
+#spinner.show{opacity:1;visibility:visible;transition:opacity .5s,visibility 0s}
+.brand-mark{width:38px;height:38px;border-radius:50%;background:var(--lb-red);color:#fff;display:inline-flex;align-items:center;justify-content:center}
+.brand-text{font-weight:700;font-size:1.5rem;color:var(--lb-teal)}.brand-text span{color:var(--lb-red)}
+.nav-link{font-weight:500;color:var(--lb-navy)!important}
+.nav-link.active,.nav-link:hover{color:var(--lb-red)!important}
+.btn-lb{background:var(--lb-red);color:#fff;border-radius:50rem;padding:.55rem 1.4rem;font-weight:600;border:0}
+.btn-lb:hover{background:var(--lb-red-dark);color:#fff}
+.btn-outline-lb{border:2px solid var(--lb-navy);color:var(--lb-navy);border-radius:50rem;padding:.5rem 1.4rem;font-weight:600}
+.btn-outline-lb:hover{background:var(--lb-navy);color:#fff}
+.hero{background:linear-gradient(120deg,#eef5ff 0%,#fff 60%);padding:90px 0}
+.hero h1{font-weight:700;color:var(--lb-navy);font-size:3.2rem}.hero h1 span{color:var(--lb-red)}
+.feature-card{background:#fff;border-radius:1rem;box-shadow:0 8px 24px rgba(15,44,92,.08);padding:1.5rem;text-align:center}
+.feature-card i{font-size:2.2rem;color:var(--lb-red)}
+.section-title{font-weight:700;color:var(--lb-navy)}.section-title span{color:var(--lb-red)}
+.blood-drop{display:inline-flex;align-items:center;justify-content:center;width:56px;height:68px;background:var(--lb-red);color:#fff;font-weight:700;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;margin:.3rem}
+.date-badge{background:var(--lb-red);color:#fff;border-radius:.6rem;padding:.4rem .8rem;text-align:center;line-height:1.1;display:inline-block}
+.auth-side{background:var(--lb-navy);color:#fff;border-radius:1rem 0 0 1rem;padding:2rem}
+.lb-footer{background:var(--lb-navy)}.footer-link{color:#cdd6e6;text-decoration:none;margin-bottom:.4rem}.footer-link:hover{color:#fff}
+.btn-back-to-top{position:fixed;display:none;right:30px;bottom:30px;width:44px;height:44px;align-items:center;justify-content:center;border-radius:50%;z-index:99}
